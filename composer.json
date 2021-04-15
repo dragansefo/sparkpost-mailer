@@ -1,0 +1,27 @@
+{
+  "name": "dragansefo/sparkpost-mailer",
+  "type": "symfony-bridge",
+  "description": "Symfony SparkPost Mailer Bridge",
+  "keywords": [],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dragan Sefo",
+      "email": "dragan.sefo@sourceability.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.2.5",
+    "symfony/mailer": "^5.1"
+  },
+  "require-dev": {
+    "symfony/http-client": "^5.0"
+  },
+  "autoload": {
+    "psr-4": { "Symfony\\Component\\Mailer\\Bridge\\SparkPost\\": "" },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  },
+  "minimum-stability": "dev"
+}
