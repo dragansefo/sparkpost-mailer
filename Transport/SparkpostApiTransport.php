@@ -1,6 +1,6 @@
 <?php
 
-namespace Symfony\Component\Mailer\Bridge\SparkPost\Transport;
+namespace Symfony\Component\Mailer\Bridge\Sparkpost\Transport;
 
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -12,7 +12,7 @@ use Symfony\Component\Mime\Email;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
-class SparkPostApiTransport extends AbstractApiTransport
+class SparkpostApiTransport extends AbstractApiTransport
 {
     private const HOST = 'api.sparkpost.com';
 
