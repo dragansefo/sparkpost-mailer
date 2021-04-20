@@ -1,5 +1,5 @@
 {
-  "name": "dragansefo/sparkpost-mailer",
+  "name": "symfony/sparkpost-mailer",
   "type": "symfony-bridge",
   "description": "Symfony SparkPost Mailer Bridge",
   "keywords": [],
