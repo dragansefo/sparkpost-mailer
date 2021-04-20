@@ -11,8 +11,9 @@ class SparkpostTransportFactory extends AbstractTransportFactory
 {
     public function create(Dsn $dsn): TransportInterface
     {
+        $key = $this->getUser($dsn);
         if ('sparkpost+api' === $dsn->getScheme()) {
-            return new SparkpostApiTransport($dsn->getUser());
+            return new SparkpostApiTransport($key, $this->client, $this->dispatcher, $this->logger);
         }
 
         throw new UnsupportedSchemeException($dsn, 'sparkpost', $this->getSupportedSchemes());
