@@ -32,7 +32,10 @@ class SparkpostApiTransport extends AbstractApiTransport
 
     protected function doSendApi(SentMessage $sentMessage, Email $email, Envelope $envelope): ResponseInterface
     {
-        $response = $this->client->request('POST', 'https://'.$this->getEndpoint().'/api/v1/transmissions', ['json' => $this->getPayload($email, $envelope)]);
+        $response = $this->client->request('POST', 'https://'.$this->getEndpoint().'/api/v1/transmissions', [
+            'json' => $this->getPayload($email, $envelope),
+            'auth_bearer' => $this->key,
+        ]);
 
         $result = $response->toArray(false);
         if (200 !== $response->getStatusCode()) {
