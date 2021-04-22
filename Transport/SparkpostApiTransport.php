@@ -42,9 +42,9 @@ class SparkpostApiTransport extends AbstractApiTransport
             throw new HttpTransportException(
                 sprintf(
                     'Unable to send email: message - %s, description - %s, code - %d',
-                    $result['errors'][0]['message'],
-                    $result['errors'][0]['description'],
-                    $result['errors'][0]['code']
+                    $result['errors'][0]['message'] ?? '',
+                    $result['errors'][0]['description'] ?? '',
+                    $result['errors'][0]['code'] ?? 1
                 ),
                 $response
             );
@@ -73,7 +73,7 @@ class SparkpostApiTransport extends AbstractApiTransport
         return $recipients;
     }
 
-    private function getEndpoint(): ?string
+    private function getEndpoint(): string
     {
         return ($this->host ?: self::HOST).($this->port ? ':'.$this->port : '');
     }
@@ -88,6 +88,7 @@ class SparkpostApiTransport extends AbstractApiTransport
                 ],
                 'subject' => $email->getSubject(),
                 'html' => $email->getHtmlBody(),
+                'text' => $email->getTextBody(),
                 'attachments' => $this->getAttachments($email)
             ],
         ];
